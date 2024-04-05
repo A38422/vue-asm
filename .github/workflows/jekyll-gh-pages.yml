@@ -1,10 +1,9 @@
 name: Deploy to Github Pages  # Defines the name of the GitHub Actions workflow.
 
 on:
+    # Runs on pushes targeting the default branch
     push:
-        branches:
-            - develop  # Triggers the workflow on each push to the 'develop' branch.
-
+        branches: ["master"]
 jobs:
     build:
       name: Build  # Defines the name of the build job.
@@ -21,7 +20,7 @@ jobs:
 
         - name: Install Packages and Build Application  # Installs npm packages and builds the Vue.js application.
           run: |
-            npm ci
+            npm i
             npm run build
 
         - name: Setup Pages  # Configures pages for deployment.
@@ -56,4 +55,4 @@ jobs:
       steps:
         - name: Deploy to GitHub Pages  # Deploys the application to GitHub Pages.
           id: deployment
-          uses: actions/deploy-pages@v2  # Specifies the version of the deployment action.
+          uses: actions/deploy-pages@v4  # Specifies the version of the deployment action.
