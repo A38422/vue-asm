@@ -15,6 +15,7 @@ export default defineConfig({
             resolvers: [ElementPlusResolver()],
         }),
     ],
+    base: "/vue-asm",
     server: {
         port: 8080,
     },
